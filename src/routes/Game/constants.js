@@ -1,4 +1,7 @@
+export const SET_STAGE = 'SET_STAGE'
 export const RESET_DECK = 'RESET_DECK'
 export const ADD_PLAYER = 'ADD_PLAYER'
 export const SET_CURRENT_PLAYER = 'SET_CURRENT_PLAYER'
 export const DEAL_HANDS = 'DEAL_HANDS'
+export const PICK_CARDS = 'PICK_CARDS'
+export const PUT_CARD = 'PUT_CARD'

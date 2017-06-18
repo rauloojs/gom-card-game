@@ -13,6 +13,34 @@ export function newHand(cards) {
   }
 }
 
+export function pickCards(hand) {
+  let openCards = hand.openCards.slice();
+  let handCards = hand.handCards.slice();
+
+  return {
+    ...hand,
+    openCards: [],
+    handCards: [
+      ...openCards,
+      ...handCards
+    ]
+  }
+}
+
+export function putCard(hand, index) {
+  let openCards = hand.openCards.slice();
+  let handCards = hand.handCards.slice();
+
+  openCards.push(handCards[index]);
+  handCards.splice(index, 1);
+
+  return {
+    ...hand,
+    openCards,
+    handCards
+  }
+}
+
 // export class Hand {
 //   constructor() {
 //     this.setCards = [];

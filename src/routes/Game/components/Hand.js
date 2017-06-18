@@ -36,15 +36,15 @@ export default class Hand extends Component {
         <div>
           <h3>Set cards</h3>
           {hand.setCards.map((card, index) => {
-            return <CardContainer index={index} key={index} card={card} open={false}/>
+            return <CardContainer index={index} key={index} card={card} open={false} isHandCard={false}/>
           })}
           <h3>Open cards</h3>
           {hand.openCards.map((card, index) => {
-            return <CardContainer index={index} key={index} card={card} open={true}/>
+            return <CardContainer index={index} key={index} card={card} open={true} isHandCard={false}/>
           })}
           <h3>Hand cards</h3>
           {hand.handCards.map((card, index) => {
-            return <CardContainer index={index} key={index} card={card} open={true}/>
+            return <CardContainer index={index} key={index} card={card} open={true} isHandCard={true}/>
           })}
           {pickButton}
           {continueButton}

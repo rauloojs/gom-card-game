@@ -1,15 +1,17 @@
 import { connect } from 'react-redux'
-import { putCard } from '../actions'
+import { putCard, playCard } from '../actions'
 import Card from '../components/Card'
-import { getCurrentPlayerHand } from '../selectors'
+import { getTopFromPile } from '../selectors'
 
 
 const mapStateToProps = (state) => ({
   stage: state.game.stage,
+  top: getTopFromPile(state),
 });
 
 const mapDispatchToProps = {
-  putCard
+  putCard,
+  playCard
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

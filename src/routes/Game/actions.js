@@ -28,3 +28,8 @@ export const putCard = (index) => ({
   type: ActionTypes.PUT_CARD,
   index
 });
+
+export const playCard = (index) => ({
+  type: ActionTypes.PLAY_CARD,
+  index
+});

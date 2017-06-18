@@ -41,6 +41,18 @@ export function putCard(hand, index) {
   }
 }
 
+export function playCard(hand, index) {
+  let handCards = hand.handCards.slice();
+  let card = handCards[index];
+
+  handCards.splice(index, 1);
+
+  return {
+    card,
+    handCards
+  }
+}
+
 // export class Hand {
 //   constructor() {
 //     this.setCards = [];

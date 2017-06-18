@@ -6,6 +6,7 @@ import deck from './deck'
 import players from './players'
 import hands from './hands'
 import stage from './stage'
+import pile from './pile'
 import * as Deck from 'gameClasses/Deck'
 import * as Hand from 'gameClasses/Hand'
 
@@ -54,6 +55,18 @@ const ACTION_HANDLERS = {
 
     return newState
   },
+  [ActionTypes.PLAY_CARD] : (state, action) => {
+    let hands = [];
+    let newState = {...state};
+
+    newState.hands = newState.hands.slice();
+    newState.pile = newState.pile.slice();
+    let { card, hand } = Hand.playCard(state.hands[state.currentPlayer], action.index);
+    newState.hands[state.currentPlayer] = hand;
+    newState.pile.push(card);
+
+    return newState
+  },
 }
 
 const initialState = {
@@ -72,7 +85,8 @@ let combined = combineReducers({
   deck,
   players,
   hands,
-  stage
+  stage,
+  pile
 });
 
 const game = reduceReducers(combined, main);

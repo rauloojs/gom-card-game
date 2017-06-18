@@ -9,19 +9,19 @@ const suits = [
 ]
 
 const values = [
-  'A',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'J',
-  'Q',
-  'K',
+  {value: 'A', realValue: 11},
+  {value: '2', realValue: 0},
+  {value: '3', realValue: 1},
+  {value: '4', realValue: 2},
+  {value: '5', realValue: 3},
+  {value: '6', realValue: 4},
+  {value: '7', realValue: 5},
+  {value: '8', realValue: 6},
+  {value: '9', realValue: 7},
+  {value: '10', realValue: 0},
+  {value: 'J', realValue: 8},
+  {value: 'Q', realValue: 9},
+  {value: 'K', realValue: 10},
 ]
 
 const shuffle = deck => {
@@ -47,8 +47,8 @@ export function giveCards(deck, number) {
 export function newDeck() {
   let cards = [];
   for (let suit of suits) {
-    for (let value of values) {
-      cards.push({ suit, value });
+    for (let v of values) {
+      cards.push({ suit, value: v.value, realValue: v.realValue });
     }
   }
 

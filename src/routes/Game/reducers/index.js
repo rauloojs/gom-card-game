@@ -4,6 +4,8 @@ import currentPlayer from './currentPlayer'
 import * as ActionTypes from '../constants'
 import deck from './deck'
 import players from './players'
+import * as Deck from 'gameClasses/Deck'
+import * as Hand from 'gameClasses/Hand'
 
 
 const ACTION_HANDLERS = {
@@ -17,18 +19,26 @@ const ACTION_HANDLERS = {
     }
   },
   [ActionTypes.DEAL_HANDS] : (state, action) => {
+    let hands = [];
+    let newState = {...state};
+
+    state.players.forEach(player => {
+      let { deck, cards } = Deck.giveCards(newState.deck, 9);
+      let hand = Hand.newHand(cards);
+      newState.deck = deck;
+      hands.push(hand);
+    });
+
     return {
-      ...state,
-      players: [
-        ...state.players,
-        state.players.length + 1
-      ]
+      ...newState,
+      hands
     }
   },
 }
 
 const initialState = {
-  players: []
+  players: [],
+  hands: []
 };
 
 function main (state = initialState, action) {

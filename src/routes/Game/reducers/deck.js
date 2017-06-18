@@ -1,10 +1,10 @@
 import * as ActionTypes from '../constants'
-import newDeck from 'gameClasses/Deck'
+import * as Deck from 'gameClasses/Deck'
 
 
 const ACTION_HANDLERS = {
   [ActionTypes.RESET_DECK] : (state, action) => {
-    return newDeck()
+    return Deck.newDeck()
   },
 }
 

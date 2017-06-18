@@ -10,3 +10,7 @@ export const resetDeck = () => ({
 export const addPlayer = () => ({
   type: ActionTypes.ADD_PLAYER
 });
+
+export const dealHands = () => ({
+  type: ActionTypes.DEAL_HANDS
+});

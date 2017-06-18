@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { resetDeck, addPlayer } from '../actions'
+import { resetDeck, addPlayer, dealHands } from '../actions'
 import Game from '../components/Game'
 
 
@@ -8,7 +8,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  resetDeck, addPlayer
+  resetDeck,
+  addPlayer,
+  dealHands
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

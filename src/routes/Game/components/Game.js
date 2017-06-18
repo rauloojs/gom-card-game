@@ -10,6 +10,7 @@ export default class Game extends Component {
     this.props.resetDeck();
     this.props.addPlayer();
     this.props.addPlayer();
+    this.props.dealHands();
   }
 
   render() {

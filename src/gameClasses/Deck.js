@@ -24,18 +24,6 @@ const values = [
   'K',
 ]
 
-
-export default function newDeck() {
-  let cards = [];
-  for (let suit of suits) {
-    for (let value of values) {
-      cards.push({ suit, value });
-    }
-  }
-
-  return shuffle(cards);
-}
-
 const shuffle = deck => {
   let newDeck = getMutableArray(deck);
 
@@ -47,11 +35,22 @@ const shuffle = deck => {
   return newDeck;
 }
 
-static giveCards(deck) {
-  let newDeck = getMutableArray(deck, integer);
+export function giveCards(deck, number) {
+  let newDeck = getMutableArray(deck, number);
 
   return {
-    cards: newDeck.slice(0, integer),
-    deck: newDeck.slice(integer, newDeck.length)
+    cards: newDeck.slice(0, number),
+    deck: newDeck.slice(number, newDeck.length)
   };
+}
+
+export function newDeck() {
+  let cards = [];
+  for (let suit of suits) {
+    for (let value of values) {
+      cards.push({ suit, value });
+    }
+  }
+
+  return shuffle(cards);
 }

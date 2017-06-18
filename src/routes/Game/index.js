@@ -13,7 +13,7 @@ export default (store) => ({
       const GameContainer = require('./containers/GameContainer').default
       const reducer = require('./reducers/index').default
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'list', reducer })
+      injectReducer(store, { key: 'game', reducer })
 
       /*  Return getComponent   */
       callBack(null, GameContainer)

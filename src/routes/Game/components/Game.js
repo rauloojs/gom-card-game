@@ -1,38 +1,25 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import Box from 'grommet/components/Box'
-import Accordion from 'grommet/components/Accordion';
-import AccordionPanel from 'grommet/components/AccordionPanel';
-import ListHeader from './ListHeader'
-import FlowDetail from './FlowDetail'
+import Button from 'grommet/components/Button'
+import Deck from './Deck'
 
 
-export default class FlowsList extends Component {
-  componentWillMount() {
-    this.props.getFLowsList();
+export default class Game extends Component {
+  handleStartGameClick() {
+    this.props.resetDeck();
+    this.props.addPlayer();
+    this.props.addPlayer();
   }
+
   render() {
-    let { flows } = this.props;
-    let rows = flows.map((flow, key) => {
-      let { id, name, version, publish_status } = flow;
-      return (
-        <AccordionPanel key={key} heading={<span>{flow.name}</span>}>
-          <FlowDetail flow={flow} />
-        </AccordionPanel>
-      )
-    });
+    let { deck } = this.props;
 
     return (
-      <div>
-        <ListHeader />
-        <Box direction='column' responsive={false} align='center' pad='small'>
-          <section style={{width: '100%'}}>
-            <Accordion>
-              {rows}
-            </Accordion>
-          </section>
-        </Box>
-      </div>
+      <Box>
+        <Button label='Start new game!' onClick={this.handleStartGameClick.bind(this)}></Button>
+        <Deck deck={deck}/>
+      </Box>
     );
   }
 }

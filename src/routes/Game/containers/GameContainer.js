@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
-import { getFLowsList } from '../actions'
-import FlowsList from '../components/FlowsList'
+import { resetDeck, addPlayer } from '../actions'
+import Game from '../components/Game'
 
 
 const mapStateToProps = (state) => ({
-  flows: state.list.flows
+  deck: state.game.deck
 });
 
 const mapDispatchToProps = {
-  getFLowsList
+  resetDeck, addPlayer
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FlowsList);
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
